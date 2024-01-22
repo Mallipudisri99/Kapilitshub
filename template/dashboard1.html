@@ -1,0 +1,35 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Dashboard</title>
+</head>
+<body>
+
+    <h1>Video Dashboard</h1>
+
+    <div id="videoPlayer">
+        <!-- Video player container -->
+        <h2 id="videoTitle"></h2>
+        <video id="mainVideo" width="640" height="360" controls>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="videoThumbnails">
+        <!-- Thumbnails for each video -->
+        {% for video in videos %}
+            <div class="thumbnail" onclick="playVideo('{{ video.video_url }}', '{{ video.title }}')">
+                <img src="{{ video.images.url }}" alt="{{ video.title }}">
+                <p>{{ video.title }}</p>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+    
+
+</body>
+</html>

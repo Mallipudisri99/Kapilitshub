@@ -1,0 +1,26 @@
+<!-- templates/your_app/video_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapil IT Skill HUB</title>
+</head>
+<body>
+  <h1>All Videos</h1>
+   {% for  i in videos %}
+    <div class="video-card">
+      <h2><a href="{% url 'video-detail' %}">{{videos.title }}</a></h2>
+      <video controls width="160" height="90">
+        <source src="{{ videos.video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>{{ videos.description }}</p>
+    </div>
+    {%endfor%}
+
+  
+</body>
+</html>
+
+
